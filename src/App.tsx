@@ -1,36 +1,36 @@
 import * as React from "react";
 import "./App.css";
+import Footer from "./footer";
 
 const CONSTANT_KEYS = {
   ENTER_KEY: 13
 };
 
 class App extends React.Component {
-  public state = {
-    obj: {
-      hello: "world",
-      world: "hello"
-    }
-  };
+  // public state = {//   obj: {
+  //     hello: "world",
+  //     world: "hello"
+  //   }
+  // };
+
   private inputRef: React.RefObject<HTMLInputElement>;
   public constructor(props: Readonly<{}>) {
     super(props);
     this.inputRef = React.createRef<HTMLInputElement>();
-    setInterval(() => {
-      const obj = {
-        ...this.state.obj,
-        hello: this.state.obj.hello + "1"
-      };
-      this.setState({ obj });
-    }, 1000);
+    // setInterval(() => {
+    //   const obj = {
+    //     ...this.state.obj,
+    //     hello: this.state.obj.hello + "1"
+    //   };
+    //   this.setState({ obj });
+    // }, 1000);
   }
   public render() {
     return (
       <div>
         <section className="todoapp">
           <header className="header">
-            <h1>todos{this.state.obj.hello}</h1>
-            <h2>todos{this.state.obj.world}</h2>
+            <h1>todos</h1>
             <input
               ref={this.inputRef}
               className="new-todo"
@@ -42,6 +42,7 @@ class App extends React.Component {
               }
             />
           </header>
+          <Footer />
         </section>
       </div>
     );
